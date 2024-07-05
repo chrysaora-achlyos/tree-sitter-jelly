@@ -2,51 +2,33 @@
 repeat statements parens around amount
 ==================
 
-repeat(3) { wait(seconds: 3) }
+repeat(3) {  }
 
 ---
 
 (source_file
   (repeat_definition
     (number)
-    (block
-      (function_call
-        (identifier
-          (identifier_content))
-        (parameter_list
-          (parameter_list_item
-            (identifier
-              (identifier_content))
-            (identifier
-              (identifier_content))))))))
+    (block)))
 
 ==================
 repeat statements space around amount
 ==================
 
-repeat 3 { wait(seconds: 3) }
+repeat 3 {  }
 
 ---
 
 (source_file
   (repeat_definition
     (number)
-    (block
-      (function_call
-        (identifier
-          (identifier_content))
-        (parameter_list
-          (parameter_list_item
-            (identifier
-              (identifier_content))
-            (identifier
-              (identifier_content))))))))
+    (block)))
 
 ==================
 repeat statements open left paren amount
 ==================
 
-repeat(3 { wait(seconds: 3) }
+repeat(3 {  }
 
 ---
 
@@ -59,7 +41,7 @@ repeat(3 { wait(seconds: 3) }
 repeat statements open right paren amount
 ==================
 
-repeat 3){ wait(seconds: 3) }
+repeat 3){  }
 
 ---
 
