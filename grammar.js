@@ -41,9 +41,10 @@ module.exports = grammar({
         // MARK: Repeat
         repeat_definition: $ => seq(
             'repeat',
-            choice('(', /\s+/),
-            field('amount', $.number),
-            choice(')', /\s+/),
+            choice(
+                seq( /\s+/, field('amount', $.number), /\s+/),
+                seq( '(',   field('amount', $.number), ')')
+            ),
             field('body', $.block),
             optional(field('magic_variable', $.magic_variable_definition))
         ),
