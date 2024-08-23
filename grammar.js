@@ -217,11 +217,11 @@ module.exports = grammar({
    
         // Primitives
         _primitive: $ => choice(
+            $.number,
             $.identifier,
             $.array,
             $.string,
-            $.multi_line_string,
-            $.number
+            $.multi_line_string
         ),
 
         identifier: $ => seq(
