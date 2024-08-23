@@ -224,6 +224,9 @@ module.exports = grammar({
             $.multi_line_string
         ),
 
+        // https://stackoverflow.com/a/12643073/14886210
+        number: $ => /[+-]?([0-9]*[.])?[0-9]+/,
+
         identifier: $ => seq(
             field('content', $.identifier_content),
             optional(
@@ -237,9 +240,6 @@ module.exports = grammar({
 
         identifier_content: $ => /[a-zA-Z0-9_$-]+/,
         
-        // https://stackoverflow.com/a/12643073/14886210
-        number: $ => /[+-]?([0-9]*[.])?[0-9]+/,
-
         // Array
         array: $ => seq(
             '[',
