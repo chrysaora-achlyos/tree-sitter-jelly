@@ -285,19 +285,26 @@ module.exports = grammar({
             '}'
         ),
 
-        // !! FIX: need to do rest of json value(s) array, number, true, false, null
         json_object_value: $ => seq (
           '{', json_commaSep($._json_pair), '}',
         ),
         _json_value: $ => choice(
           $._json_object,
-          $._json_string                        //!! FIX !!
+          $._json_array,
+          $._json_number,
+          $._json_string,
+          $._json_true,
+          $._json_false,
+          $._json_null,
         ),
         _json_object: $ => seq (
           '{', json_commaSep($._json_pair), '}',
         ),
         _json_pair: $ => seq(
           $._json_string, ':', $._json_value,
+        ),
+        _json_array: $ => seq(
+          '[', json_commaSep($._json_value), ']',
         ),
         _json_string: $ => choice(
           seq('"', '"'),
@@ -312,6 +319,29 @@ module.exports = grammar({
                 '\\',
                 /(\"|\\|\/|b|f|n|r|t|u)/,
         )),
+        _json_number: _ => {
+          const decimalDigits = /\d+/;
+          const signedInteger = seq(optional('-'), decimalDigits);
+          const exponentPart = seq(choice('e', 'E'), signedInteger);
+
+          const decimalIntegerLiteral = seq(
+            optional('-'),
+            choice(
+              '0',
+              seq(/[1-9]/, optional(decimalDigits)),
+            ),
+          );
+
+          const decimalLiteral = choice(
+            seq(decimalIntegerLiteral, '.', optional(decimalDigits), optional(exponentPart)),
+            seq(decimalIntegerLiteral, optional(exponentPart)),
+          );
+
+         return token(decimalLiteral);
+        },
+        _json_true: _ => 'true',
+        _json_false: _ => 'false',
+        _json_null: _ => 'null',
 
         variable_property: $ => seq(
             '.',

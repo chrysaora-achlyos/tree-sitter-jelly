@@ -1,6 +1,8 @@
 dictionary(json: {"c": {"a": "b"}})
 dictionary(json: 
- { "routinehub": 
+ { "foo": 1,
+   "bar": [ "a", 1, true, false, null],
+   "routinehub": 
    { "author": 
      { "name": "0xChris", 
        "url": "https://routinehub.co/user/0xchris" 
