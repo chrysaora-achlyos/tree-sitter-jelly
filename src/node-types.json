@@ -16,6 +16,10 @@
             "named": true
           },
           {
+            "type": "json_object_value",
+            "named": true
+          },
+          {
             "type": "multi_line_string",
             "named": true
           },
@@ -187,6 +191,10 @@
             "named": true
           },
           {
+            "type": "json_object_value",
+            "named": true
+          },
+          {
             "type": "multi_line_string",
             "named": true
           },
@@ -210,6 +218,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "json_object_value",
             "named": true
           },
           {
@@ -403,6 +415,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "json_object_value",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "macro_definition",
@@ -663,6 +680,10 @@
             "named": true
           },
           {
+            "type": "json_object_value",
+            "named": true
+          },
+          {
             "type": "multi_line_string",
             "named": true
           },
@@ -777,6 +798,10 @@
             "named": true
           },
           {
+            "type": "json_object_value",
+            "named": true
+          },
+          {
             "type": "multi_line_string",
             "named": true
           },
@@ -816,6 +841,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "json_object_value",
             "named": true
           },
           {
@@ -967,6 +996,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "json_object_value",
             "named": true
           },
           {

@@ -221,7 +221,8 @@ module.exports = grammar({
             $.identifier,
             $.array,
             $.string,
-            $.multi_line_string
+            $.multi_line_string,
+            $.json_object_value 
         ),
 
         // https://stackoverflow.com/a/12643073/14886210
@@ -284,6 +285,34 @@ module.exports = grammar({
             '}'
         ),
 
+        // !! FIX: need to do rest of json value(s) array, number, true, false, null
+        json_object_value: $ => seq (
+          '{', json_commaSep($._json_pair), '}',
+        ),
+        _json_value: $ => choice(
+          $._json_object,
+          $._json_string                        //!! FIX !!
+        ),
+        _json_object: $ => seq (
+          '{', json_commaSep($._json_pair), '}',
+        ),
+        _json_pair: $ => seq(
+          $._json_string, ':', $._json_value,
+        ),
+        _json_string: $ => choice(
+          seq('"', '"'),
+          seq('"', $._json___string_content, '"'),
+        ),
+        _json___string_content: $ => repeat1(choice(
+          $._json_string_content,
+          $._json_escape_sequence,
+        )),
+        _json_string_content: _ => token.immediate(prec(1, /[^\\"\n]+/)),
+        _json_escape_sequence: _ => token.immediate(seq(
+                '\\',
+                /(\"|\\|\/|b|f|n|r|t|u)/,
+        )),
+
         variable_property: $ => seq(
             '.',
             field('type', $.variable_property_type),
@@ -321,3 +350,30 @@ module.exports = grammar({
         block_comment_content: $ => /.+/,
     }
 });
+
+/**
+ * https://github.com/tree-sitter/tree-sitter-json/blob/master/grammar.js
+ */
+/**
+ * Creates a rule to match one or more of the rules separated by a comma
+ *
+ * @param {RuleOrLiteral} rule
+ *
+ * @return {SeqRule}
+ *
+ */
+function json_commaSep1(rule) {
+  return seq(rule, repeat(seq(',', rule)));
+}
+
+/**
+ * Creates a rule to optionally match one or more of the rules separated by a comma
+ *
+ * @param {RuleOrLiteral} rule
+ *
+ * @return {ChoiceRule}
+ *
+ */
+function json_commaSep(rule) {
+  return optional(json_commaSep1(rule));
+}

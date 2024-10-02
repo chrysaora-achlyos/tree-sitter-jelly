@@ -1,0 +1,14 @@
+dictionary(json: {"c": {"a": "b"}})
+dictionary(json: 
+ { "routinehub": 
+   { "author": 
+     { "name": "0xChris", 
+       "url": "https://routinehub.co/user/0xchris" 
+     }, 
+     "shortcut": 
+     { "name": "0xQRMaker", 
+       "id": "18187", 
+       "url": "https://routinehub.co/shortcut/18187/"
+     }
+   } 
+ }) >> casestudy
