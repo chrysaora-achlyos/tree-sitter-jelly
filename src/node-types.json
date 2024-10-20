@@ -419,7 +419,28 @@
   {
     "type": "json_object_value",
     "named": true,
-    "fields": {}
+    "fields": {
+      "interpolation": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "string_interpolation",
+            "named": true
+          }
+        ]
+      },
+      "text": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "string_chars",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
     "type": "macro_definition",

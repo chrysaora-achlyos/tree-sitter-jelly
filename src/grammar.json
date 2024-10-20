@@ -1410,12 +1410,20 @@
         "type": "CHOICE",
         "members": [
           {
-            "type": "SYMBOL",
-            "name": "_json_string_content"
+            "type": "FIELD",
+            "name": "text",
+            "content": {
+              "type": "SYMBOL",
+              "name": "string_chars"
+            }
           },
           {
-            "type": "SYMBOL",
-            "name": "_json_escape_sequence"
+            "type": "FIELD",
+            "name": "interpolation",
+            "content": {
+              "type": "SYMBOL",
+              "name": "string_interpolation"
+            }
           }
         ]
       }
