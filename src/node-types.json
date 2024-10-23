@@ -429,17 +429,17 @@
             "named": true
           }
         ]
-      },
-      "text": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": "string_chars",
-            "named": true
-          }
-        ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "string_chars",
+          "named": true
+        }
+      ]
     }
   },
   {

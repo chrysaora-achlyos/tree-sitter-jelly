@@ -1410,12 +1410,8 @@
         "type": "CHOICE",
         "members": [
           {
-            "type": "FIELD",
-            "name": "text",
-            "content": {
-              "type": "SYMBOL",
-              "name": "string_chars"
-            }
+            "type": "SYMBOL",
+            "name": "string_chars"
           },
           {
             "type": "FIELD",

@@ -314,7 +314,7 @@ module.exports = grammar({
         _json___string_content: $ => repeat1(choice(
 //          field("text": $._json_string_content),
 //          field("text": $._json_escape_sequence),
-          field("text", $.string_chars), 
+          $.string_chars, 
           field("interpolation", $.string_interpolation)
         )),
         _json_string_content: _ => token.immediate(prec(1, /[^\\"\n]+/)),
