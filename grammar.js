@@ -291,7 +291,7 @@ module.exports = grammar({
         _json_value: $ => choice(
           $._json_object,
           $._json_array,
-          $._json_number,
+          $.json_number,
           $._json_string,
           $._json_true,
           $._json_false,
@@ -322,7 +322,7 @@ module.exports = grammar({
                 '\\',
                 /(\"|\\|\/|b|f|n|r|t|u)/,
         )),
-        _json_number: _ => {
+        json_number: _ => {
           const decimalDigits = /\d+/;
           const signedInteger = seq(optional('-'), decimalDigits);
           const exponentPart = seq(choice('e', 'E'), signedInteger);

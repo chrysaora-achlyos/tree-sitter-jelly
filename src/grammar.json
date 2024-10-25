@@ -1240,7 +1240,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_json_number"
+          "name": "json_number"
         },
         {
           "type": "SYMBOL",
@@ -1451,7 +1451,7 @@
         ]
       }
     },
-    "_json_number": {
+    "json_number": {
       "type": "TOKEN",
       "content": {
         "type": "CHOICE",

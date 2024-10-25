@@ -57,7 +57,7 @@ enum ts_symbol_identifiers {
   anon_sym_DQUOTE_DQUOTE_DQUOTE = 39,
   anon_sym_DOLLAR_LBRACE = 40,
   sym__json_escape_sequence = 41,
-  sym__json_number = 42,
+  sym_json_number = 42,
   sym__json_true = 43,
   sym__json_false = 44,
   sym__json_null = 45,
@@ -166,7 +166,7 @@ static const char * const ts_symbol_names[] = {
   [anon_sym_DQUOTE_DQUOTE_DQUOTE] = "\"\"\"",
   [anon_sym_DOLLAR_LBRACE] = "${",
   [sym__json_escape_sequence] = "_json_escape_sequence",
-  [sym__json_number] = "_json_number",
+  [sym_json_number] = "json_number",
   [sym__json_true] = "_json_true",
   [sym__json_false] = "_json_false",
   [sym__json_null] = "_json_null",
@@ -275,7 +275,7 @@ static const TSSymbol ts_symbol_map[] = {
   [anon_sym_DQUOTE_DQUOTE_DQUOTE] = anon_sym_DQUOTE_DQUOTE_DQUOTE,
   [anon_sym_DOLLAR_LBRACE] = anon_sym_DOLLAR_LBRACE,
   [sym__json_escape_sequence] = sym__json_escape_sequence,
-  [sym__json_number] = sym__json_number,
+  [sym_json_number] = sym_json_number,
   [sym__json_true] = sym__json_true,
   [sym__json_false] = sym__json_false,
   [sym__json_null] = sym__json_null,
@@ -510,8 +510,8 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = false,
     .named = true,
   },
-  [sym__json_number] = {
-    .visible = false,
+  [sym_json_number] = {
+    .visible = true,
     .named = true,
   },
   [sym__json_true] = {
@@ -2641,26 +2641,26 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(sym__json_escape_sequence);
       END_STATE();
     case 145:
-      ACCEPT_TOKEN(sym__json_number);
+      ACCEPT_TOKEN(sym_json_number);
       if (lookahead == '.') ADVANCE(147);
       if (lookahead == 'E' ||
           lookahead == 'e') ADVANCE(14);
       END_STATE();
     case 146:
-      ACCEPT_TOKEN(sym__json_number);
+      ACCEPT_TOKEN(sym_json_number);
       if (lookahead == '.') ADVANCE(147);
       if (lookahead == 'E' ||
           lookahead == 'e') ADVANCE(14);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(146);
       END_STATE();
     case 147:
-      ACCEPT_TOKEN(sym__json_number);
+      ACCEPT_TOKEN(sym_json_number);
       if (lookahead == 'E' ||
           lookahead == 'e') ADVANCE(14);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(147);
       END_STATE();
     case 148:
-      ACCEPT_TOKEN(sym__json_number);
+      ACCEPT_TOKEN(sym_json_number);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(148);
       END_STATE();
     case 149:
@@ -6831,7 +6831,7 @@ static const uint16_t ts_small_parse_table[] = {
     STATE(279), 1,
       sym__json_array,
     ACTIONS(551), 4,
-      sym__json_number,
+      sym_json_number,
       sym__json_true,
       sym__json_false,
       sym__json_null,
@@ -7042,7 +7042,7 @@ static const uint16_t ts_small_parse_table[] = {
     STATE(287), 1,
       sym__json_value,
     ACTIONS(591), 4,
-      sym__json_number,
+      sym_json_number,
       sym__json_true,
       sym__json_false,
       sym__json_null,
@@ -7094,7 +7094,7 @@ static const uint16_t ts_small_parse_table[] = {
     STATE(355), 1,
       sym__json_value,
     ACTIONS(596), 4,
-      sym__json_number,
+      sym_json_number,
       sym__json_true,
       sym__json_false,
       sym__json_null,

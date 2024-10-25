@@ -436,6 +436,10 @@
       "required": false,
       "types": [
         {
+          "type": "json_number",
+          "named": true
+        },
+        {
           "type": "string_chars",
           "named": true
         }
@@ -1217,6 +1221,10 @@
   {
     "type": "import",
     "named": false
+  },
+  {
+    "type": "json_number",
+    "named": true
   },
   {
     "type": "key",
