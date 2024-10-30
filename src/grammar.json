@@ -1248,15 +1248,15 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_json_true"
+          "name": "json_true"
         },
         {
           "type": "SYMBOL",
-          "name": "_json_false"
+          "name": "json_false"
         },
         {
           "type": "SYMBOL",
-          "name": "_json_null"
+          "name": "json_null"
         }
       ]
     },
@@ -1673,15 +1673,15 @@
         ]
       }
     },
-    "_json_true": {
+    "json_true": {
       "type": "STRING",
       "value": "true"
     },
-    "_json_false": {
+    "json_false": {
       "type": "STRING",
       "value": "false"
     },
-    "_json_null": {
+    "json_null": {
       "type": "STRING",
       "value": "null"
     },

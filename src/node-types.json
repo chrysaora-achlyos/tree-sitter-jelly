@@ -436,7 +436,19 @@
       "required": false,
       "types": [
         {
+          "type": "json_false",
+          "named": true
+        },
+        {
+          "type": "json_null",
+          "named": true
+        },
+        {
           "type": "json_number",
+          "named": true
+        },
+        {
+          "type": "json_true",
           "named": true
         },
         {
@@ -1223,7 +1235,19 @@
     "named": false
   },
   {
+    "type": "json_false",
+    "named": true
+  },
+  {
+    "type": "json_null",
+    "named": true
+  },
+  {
     "type": "json_number",
+    "named": true
+  },
+  {
+    "type": "json_true",
     "named": true
   },
   {

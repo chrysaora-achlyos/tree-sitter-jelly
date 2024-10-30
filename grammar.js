@@ -1,5 +1,5 @@
 module.exports = grammar({
-    name: 'jelly',
+   name: 'jelly',
     externals: $ => [
         $.string_chars
     ],        
@@ -293,9 +293,9 @@ module.exports = grammar({
           $._json_array,
           $.json_number,
           $._json_string,
-          $._json_true,
-          $._json_false,
-          $._json_null,
+          $.json_true,
+          $.json_false,
+          $.json_null,
         ),
         _json_object: $ => seq (
           '{', json_commaSep($._json_pair), '}',
@@ -342,9 +342,9 @@ module.exports = grammar({
 
          return token(decimalLiteral);
         },
-        _json_true: _ => 'true',
-        _json_false: _ => 'false',
-        _json_null: _ => 'null',
+        json_true: _ => 'true',
+        json_false: _ => 'false',
+        json_null: _ => 'null',
 
         variable_property: $ => seq(
             '.',
